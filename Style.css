@@ -1,0 +1,160 @@
+/* --- ESTILOS GENERALES Y REINICIO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, Arial, sans-serif;
+}
+
+body {
+    background: #0b0f19;
+    color: ##ffffff;
+    line-height: 1.6;
+}
+
+/* --- HEADER --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(11, 15, 25, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-content {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* TÍTULO Y TEXTO */
+h1 {
+    font-size: 28px;
+}
+
+.header-content p {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+/* --- NAVEGACIÓN (Escritorio) --- */
+nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #9ca3af;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: white;
+}
+
+/* --- BOTÓN HAMBURGUESA (Oculto en PC) --- */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+/* SECCIONES */
+section {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* LISTAS Y TARJETAS (Habilidades / Ferramentas) */
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin-top: 10px;
+}
+
+li {
+    background: rgba(59, 130, 246, 0.15);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: #93c5fd;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #9ca3af;
+}
+
+/* --- DISEÑO RESPONSIVO (Móviles y Tablets) --- */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: row;      /* Alinea nombre y botón en la misma línea */
+        flex-wrap: wrap;          /* Permite que el menú baje cuando se abra */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Oculta la descripción larga en móviles para limpiar la barra superior */
+    .header-content p {
+        display: none; 
+    }
+
+    h1 {
+        font-size: 22px;
+        order: 1;                 /* Empuja el nombre a la izquierda */
+    }
+
+    .menu-toggle {
+        display: block;           /* Muestra el botón ☰ */
+        order: 2;                 /* Empuja el botón a la derecha */
+    }
+
+    nav {
+        display: none;            /* Oculto por defecto */
+        flex-direction: column;   /* Enlaces uno debajo del otro */
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+        order: 3;                 /* Se posiciona abajo de todo al abrirse */
+        background: rgba(15, 23, 42, 0.95); /* Fondo oscuro un poco más sólido */
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    nav a {
+        padding: 12px;            /* Botones más grandes para tocar con el dedo */
+        display: block;
+    }
+
+    /* Clase que activa el JavaScript para mostrar el menú */
+    nav.active {
+        display: flex;
+    }
+}
