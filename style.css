@@ -576,3 +576,9 @@ footer {
         width: 100%;
     }
 }
+  /* 🟣 Permite que una card sea un link (<a>) sin perder el estilo ni mostrar el subrayado azul por defecto */
+  .cards a.card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+   }
